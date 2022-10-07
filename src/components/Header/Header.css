@@ -1,0 +1,17 @@
+.Title {
+    margin: 25px 0;
+}
+
+.Header {
+    height: 160px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.Header__logo {
+    height: 80%;
+    pointer-events: none;
+}
