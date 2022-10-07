@@ -5,7 +5,7 @@ import './HomePage.css';
 export default function HomePage() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [items, setItems] = useState([]);
+    const [exchanges, setExchanges] = useState();
 
     useEffect(() => {
         fetch("https://api.coinpaprika.com/v1/coins/doge-dogecoin/exchanges")
@@ -13,7 +13,7 @@ export default function HomePage() {
             .then(
                 (result) => {
                     setIsLoaded(true);
-                    setItems(result);
+                    setExchanges(result);
                 },
                 (error) => {
                     setIsLoaded(true);
@@ -31,8 +31,8 @@ export default function HomePage() {
             <main>
                 <h1 className='Title'>Exchanges acceptant le Dogecoin</h1>
                 <ul className="Cards__container">
-                    {items.map(item => (
-                        <Card id={item.id} name={item.name} adjusted_volume_24h_share={item.adjusted_volume_24h_share} />
+                    {exchanges.map(exchange => (
+                        <Card id={exchange.id} name={exchange.name} adjusted_volume_24h_share={exchange.adjusted_volume_24h_share} />
                     ))}
                 </ul>
             </main>
